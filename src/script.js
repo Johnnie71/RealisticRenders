@@ -62,7 +62,7 @@ rgbeLoader.load('/environmentMaps/0/2k.hdr', (environmentMap) =>
  */
 
 const directionalLight = new THREE.DirectionalLight('#ffffff', 6)
-directionalLight.position.set(3, 7, 6)
+directionalLight.position.set(-10, 7, 6)
 scene.add(directionalLight)
 
 gui.add(directionalLight, 'intensity').min(0).max(10).step(0.01).name('lightIntensity')
@@ -76,12 +76,12 @@ gui.add(directionalLight.position, 'z').min(-10).max(10).step(0.001).name('light
 
 directionalLight.castShadow = true
 directionalLight.shadow.camera.far = 15
-directionalLight.shadow.mapSize.set(1024, 1024)
+directionalLight.shadow.mapSize.set(512, 512)
 gui.add(directionalLight, 'castShadow')
 
 // Helper
-const directionalLightHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
-scene.add(directionalLightHelper)
+// const directionalLightHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
+// scene.add(directionalLightHelper)
 
 // Target
 directionalLight.target.position.set(0, 4, 0)
